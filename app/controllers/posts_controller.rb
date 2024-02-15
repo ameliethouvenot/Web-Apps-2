@@ -16,7 +16,11 @@ class PostsController < ApplicationController
     @post = Post.new
   #   # assign user-entered form data to Post's columns
   #   # save Post row
-  #   # redirect user
+  @post["author"] = params["author"]
+  @post["body"] = params["body"]
+  @post["image"] = params["image"]
+  @post.save 
+  redirect_to "/posts"
   end
 
 end
